@@ -1,0 +1,13 @@
+<h1>SAW TODO</h1>
+<div class="container">
+    <input type="text"
+           class="text-input"
+           [formControl]="text"
+           (keyup)="onKeyUp($event)"
+           placeholder="Inserisci lista...">
+
+    @for (l of db.dblists(); track $index) {
+    <app-list [list]="l"></app-list>
+    }
+
+</div>

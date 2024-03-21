@@ -1,0 +1,34 @@
+<div class="list">
+    <div class="list-title">
+        @if (editing) {
+        <input type="text"
+               [formControl]="text"
+               (keyup)="onKeyUp($event)"
+               class="text-input">
+        } @else {
+        <span class="title">{{ list().label }}</span>
+        }
+
+        <div>
+            <button class="btn"
+                    (click)="goEditmode()">
+                <app-edit-icon />
+            </button>
+            <button class="btn"
+                    (click)="router.navigateByUrl('lists/' + list().id)">
+                <app-right-arrow-icon />
+            </button>
+
+            <button class="btn"
+                    (click)="deleteList()">
+                <app-delete-icon />
+            </button>
+        </div>
+    </div>
+    <div class="bar">
+        <span class="percentage"
+              data-value="90%">
+            <span class="tooltip">90%</span>
+        </span>
+    </div>
+</div>
